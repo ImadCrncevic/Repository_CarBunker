@@ -1,0 +1,20 @@
+{
+  "cars": [
+    {
+      "id": "abcd1",
+      "imageUrl": "https://www.bmw.de/content/dam/bmw/marketDE/bmw_de/topics/gebrauchtwagen/gebrauchtfahrzeuge_unsere_fahrzeuge_890x501.jpg",
+      "brand": "BMW",
+      "description": "This Car is really nice for driving vallah.",
+      "seller": "Frank Darabont",
+      "price": 15000
+    },
+    {
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/3a90e100-a6b0-4c0f-81ab-457a9c12e30c_d244c623-049c-4139-b595-e34379cf7e0e.jpg/420x315_white-background.jpg",
+      "brand": "Mercedes",
+      "description": "This car is in a good shape and everything works perfect.",
+      "seller": "Imad Crncevic",
+      "price": "15000",
+      "id": "QQyl6FG"
+    }
+  ]
+}
