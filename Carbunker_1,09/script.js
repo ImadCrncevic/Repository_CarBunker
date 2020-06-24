@@ -9,7 +9,6 @@ var request = new XMLHttpRequest();
 request.open('GET', 'http://localhost:3000/cars', true);
 request.onload = function () {
 
-  // Begin accessing JSON data here
   var data = JSON.parse(this.response);
   if (request.status >= 200 && request.status < 400) {
     data.forEach(car => {
@@ -17,7 +16,7 @@ request.onload = function () {
       card.setAttribute('class', 'card');
 
       const h1 = document.createElement('h1');
-      h1.textContent = "Brand: " + car.brand;
+      h1.textContent = car.brand;
 
       const img = document.createElement('img');
       img.src = car.imageUrl;
@@ -25,19 +24,18 @@ request.onload = function () {
       img.weight = 450;
 
       const p = document.createElement('p');
-      car.description = car.description.substring(0, 300);
-      p.textContent ="Description: " +`${car.description}...`;
+      car.telNumb = car.telNumb.substring(0, 300);
+      p.textContent ="Phone Number: " +`${car.telNumb}`;
 
       const pSeller = document.createElement('p');
       pSeller.textContent ="Seller: " + car.seller;
 
       const pPrice = document.createElement('p');
-      pPrice.textContent = "Price: "+ car.price;
-
+      pPrice.textContent = "Price: "+ car.price + "€";
 
       container.appendChild(card);
-      card.appendChild(img);
       card.appendChild(h1);
+      card.appendChild(img);
       card.appendChild(p);
       card.appendChild(pSeller);
       card.appendChild(pPrice);

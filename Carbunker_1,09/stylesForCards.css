@@ -1,7 +1,7 @@
 .card {
     display: grid;
     grid-template-areas: "image" "text";
-    border-radius: 18px;
+    border-radius: 20px;
     background: white;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
     font-family: roboto;
@@ -30,3 +30,20 @@ img{
     cursor: pointer;
     margin:30px;
   }
+
+  input[type=text] {
+    width: 90px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 80%;
+  }
+  

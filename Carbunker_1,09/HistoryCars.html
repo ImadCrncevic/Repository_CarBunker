@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+ 
+<meta charset="utf-8">
+<style>
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+body {
+  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  <!--background: #456990;-->
+}
+
+
+/* .section SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.section {
+  <!--background: #F45B69;-->
+  padding: 50px 0;
+}
+
+.section .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section h1 {
+  font-size: 2.5rem;
+}
+
+.section h2 {
+  font-size: 1.3rem;
+}
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline {
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.timeline ol {
+  font-size: 0;
+  width: 100vw;
+  padding: 250px 0;
+  transition: all 1s;
+}
+
+.timeline ol li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 160px;
+  height: 3px;
+  background: #ffffff;
+}
+
+.timeline ol li:last-child {
+  width: 280px;
+}
+
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  <!--background: #F45B69;-->
+}
+
+.timeline ol li div {
+  position: absolute;
+  left: calc(100% + 7px);
+  height: 230px;
+  width: 280px;
+  padding: 15px;
+  font-size: 1rem;
+  white-space: normal;
+  color: black;
+  background: white;
+}
+
+.timeline ol li div::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+  top: -16px;
+  transform: translateY(-100%);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+  top: 100%;
+  border-width: 8px 8px 0 0;
+  border-color: white transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+  top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(even) div::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent white;
+}
+
+.timeline time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+/* TIMELINE ARROWS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline .arrows {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.timeline .arrows .arrow__prev {
+  margin-right: 20px;
+}
+
+.timeline .disabled {
+  opacity: .5;
+}
+
+.timeline .arrows img {
+  width: 45px;
+  height: 45px;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 599px) {
+  .timeline ol,
+  .timeline ol li {
+    width: auto; 
+  }
+  
+  .timeline ol {
+    padding: 0;
+    transform: none !important;
+  }
+  
+  .timeline ol li {
+    display: block;
+    height: auto;
+    background: transparent;
+  }
+  
+  .timeline ol li:first-child {
+    margin-top: 25px;
+  }
+  
+  .timeline ol li:not(:first-child) {
+    margin-left: auto;
+  }
+  
+  .timeline ol li div {
+    width: 94%;
+    height: auto !important;
+    margin: 0 auto 25px;
+  }
+  
+  .timeline ol li div {
+    position: static;
+  }
+  
+  .timeline ol li:nth-child(odd) div {
+    transform: none;
+  }
+  
+  .timeline ol li:nth-child(odd) div::before,
+  .timeline ol li:nth-child(even) div::before {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: none;
+    border-left: 1px solid white;
+    height: 25px;
+  }
+  
+  .timeline ol li:last-child,
+  .timeline ol li:nth-last-child(2) div::before,
+  .timeline ol li:not(:last-child)::after,
+  .timeline .arrows {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+ <a href="Home.html" <button type="button" class="btn btn-outline-success">Return to home</button></a>
+<section class="section intro">
+  <div class="container">
+    <h1 style="color:Black;"><font size="6">Geschichte der Autos </font></h1>
+	<h2 style="color:Black;"><font size="5">1881 - 2020</font></h2>
+  </div>
+</section>
+<p>Die Geschichte des Automobils im engeren Sinne begann im 19. Jahrhundert. Der Begriff Automobil leitet sich ab von griechisch αὐτός autós, deutsch ‚selbst‘, und lateinisch mobilis ‚beweglich‘, und diente ursprünglich nur zur Unterscheidung von Motorfahrzeugen und Fuhrwerken bzw. Kutschen. In diesem Artikel bezieht er sich auf den in der Alltagssprache gemeinten Personenkraftwagen.
+
+  Obwohl bereits seit Anfang des 19. Jahrhunderts verschiedene Dampfkraftwagen und Dampfomnibusse und ab 1881 auch schon Elektroautos gebaut wurden, gilt 1886 mit dem Benz Patent-Motorwagen Nummer 1 des deutschen Erfinders Carl Benz als Geburtsjahr des Automobils als Personenkraftwagen mit Verbrennungsmotor.
+  
+  Im Jahr 1900 wurden in den Vereinigten Staaten noch 40 Prozent der zunächst wenigen Automobile mit Dampfkraft, 38 Prozent elektrisch, und nur 22 Prozent mit Benzin betrieben. Schon 20 Jahre später hatte sich als überlegener Antrieb mit unbeschränktem Aktionsradius der Ottomotor durchgesetzt, bevor ab den 1930er Jahren der Dieselmotor vor allem bei Nutzfahrzeugen zunehmend Marktanteile gewann.
+  
+  Nachdem die motorisierten Wagen in nahezu allen Bereichen die von Zugtieren gezogenen Fuhrwerke im Verlauf der ersten Hälfte des 20. Jahrhunderts ablösten, erreichte in dessen zweiter Hälfte in einem regelrechten Boom der motorisierte Individualverkehr in Industrieländern einen Höhepunkt, der dessen ökologische und ökonomisch Grenzen angesichts endlicher Ressourcen aufzeigte. So werden seit Anfang des 21. Jahrhunderts Lösungen wieder verstärkt in elektrischen und Hybridantrieben gesucht, sowie in neuen Mobilitätskonzepten mit der Abkehr vom motorisierten Individualverkehr.</p>>
+
+<section class="timeline">
+<dl class="row">
+  <ol>
+
+    <li>
+      <div class="col-sm-9"
+	  style="https://i.pinimg.com/originals/fd/b6/b4/fdb6b47281c3393c7647edaf5b7969d0.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4"> Benz Patent-Motorwagen Nummer 1 (1886)</font></time>
+		<img height="130" width="260" src="https://mercedes-benz-publicarchive.com/marsClassic/scr/cache/178930892v-2tv3/PKW1010010-Benz-Patent-Motorwagen-Modell-1-1885---1886.jpg"></img>
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4">Mercedes 35 PS erster Sportwagen mit Marke (1900)</font></time>
+		<!--<a height="30" width="20" style="color:red;" href="https://de.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_Die_dunkle_Bedrohung">-->
+		<img height="130" width="260" src="https://blog.mercedes-benz-passion.com/wp-cb4ef-content/uploads/2048_c31392.jpg"></img>
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4">Ford Model T (1920)</font></time>
+		<!--<a height="30" width="20" style="color:red;" href="https://de.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_Die_dunkle_Bedrohung">-->
+		<img height="130" width="250" src="https://img.ricardostatic.ch/t_1800x1350/pl/1021792352/4/1/"></img> <!--Bild-->
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4">Dieselautos (1930)</font></time>
+		<!--<a height="30" width="20" style="color:red;" href="https://de.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_Die_dunkle_Bedrohung">-->
+		<img height="150" width="240" src="https://images.prewarcar.com/pics/r2w-1200x800-caradverts/226089/2092_1504286322_resized_image.jpeg"></img> <!--Bild-->
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4">PKW (1957)</font></time>
+		<!--<a height="30" width="20" style="color:red;" href="https://de.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_Die_dunkle_Bedrohung">-->
+		<img height="140" width="250" src="https://s1.1zoom.me/big0/853/306597-Berserker.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Mercedes-Benz SL Pagode(1970)</font></time>
+		<img height="130" width="260" src="https://www.classicdriver.com/sites/default/files/styles/two_third_slider/public/cars_images/dsc_7105b_0.jpg?c=655b1124f64ce5ba73a8d0bd710f6bfb"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4"></font></time>
+        <time><font size="3">Mercedes-Benz 280SE (1980)</font></time>
+		<img height="140" width="250" src="https://i.pinimg.com/originals/6a/b0/25/6ab02531079cb22faa28ae5b5c10cd97.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4">Mercedes-Benz 560SEL (1990)</font></time>
+		<!--<a height="30" width="20" style="color:red;" href="https://de.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_Die_dunkle_Bedrohung">-->
+		<img height="130" width="230" src="https://i.pinimg.com/originals/f2/52/81/f25281a35b13f8d437eee56c1a5f6d29.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+		<time><font size="4">Sportwagen (2000)</font></time>
+		<!--<a height="30" width="20" style="color:red;" href="https://de.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_Die_dunkle_Bedrohung">-->
+		<img height="130" width="250" src="https://www.classicdriver.com/sites/default/files/styles/article_full/public/import/articlesv2/images/_de/8371/Super_2000_05pop.jpg?itok=D32tBl6S"></img> <!--Bild-->
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">VW Scirocco (2010)</font></time>
+		<img height="135" width="250" src="https://www.vau-max.de/thumbs/lib/19/07/05/o_wide/50719.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+    <li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Mercedes A45 AMG(2015)</font></time>
+		<img height="135" width="250" src="https://www.mercedes-fans.de/thumbs/img/News/30/31/01/p/p_full/tiefflieger-mercedes-a45-amg-w176-per-airride-fegt-die-2015er-a-klasse-spektakulaer-ueber-den-asphalt-13130.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Mazda pischtopschto 20145870 (2020)</font></time>
+        <time><font size="3">34 n. Yavin</font></time>
+		<img height="110" width="200" src="https://i.auto-bild.de/ir_img/1/4/5/6/2/4/1/Neue-Mittelklasse-Modelle-2020-und-2021-1200x800-8c32726937566820.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Lamborghini Huracan</font></time>
+		<img height="130" width="250" src="https://i.auto-bild.de/mdb/large/83/huracan-c46.png"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Audi R8</font></time>
+		<img height="120" width="250" src="https://www.handelsblatt.com/images/audi-r8-facelift/23652980/4-format2020.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Bugatti Chiron</font></time>
+		<img height="120" width="250" src="https://media1.autohaus.de/sixcms/media.php/5172/thumbnails/1.42895479.jpg.42895480.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Fiat 124 Spider</font></time>
+		<img height="120" width="250" src="https://www.autoscout24.at/assets/auto/images/model/fiat/fiat-124-spider/fiat-124-spider-l-01.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Renault Trezor</font></time>
+		<img height="120" width="250" src="https://www.autozeitung.de/assets/styles/article_image/public/gallery_images/2016/09/renault-trezor__3_.jpg?itok=Zu2WYp3y"></img> <!--Bild-->
+      </div>
+    </li>
+	<li>
+      <div class="col-sm-9"
+	  style="background-image: url('https://previews.123rf.com/images/oly5/oly51304/oly5130400075/18910417-abstrakter-wei%C3%9Fer-hintergrund-elegant-alt-blass-vintage-grunge-hintergrund-textur-design-mit-vintage-.jpg'); <!--Hintergrund-->
+		background-repeat: no-repeat;
+		background-size: 100% 100%";>
+        <time><font size="4">Nissan Concept</font></time>
+		<img height="120" width="250" src="https://media.speedheads.de/artikel/nissan-concept-2020-2-0047410-900x600.jpg"></img> <!--Bild-->
+      </div>
+    </li>
+    <li></li>
+  </ol>
+  </dl>
+  
+  <div class="arrows">
+    <button class="arrow arrow__prev disabled" disabled>
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
+    </button>
+    <button class="arrow arrow__next">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
+    </button>
+  </div>
+</section>
+</body>
+<script>
+(function() {
+
+  // VARIABLES
+  const timeline = document.querySelector(".timeline ol"),
+    elH = document.querySelectorAll(".timeline li > div"),
+    arrows = document.querySelectorAll(".timeline .arrows .arrow"),
+    arrowPrev = document.querySelector(".timeline .arrows .arrow__prev"),
+    arrowNext = document.querySelector(".timeline .arrows .arrow__next"),
+    firstItem = document.querySelector(".timeline li:first-child"),
+    lastItem = document.querySelector(".timeline li:last-child"),
+    xScrolling = 280,
+    disabledClass = "disabled";
+
+  // START
+  window.addEventListener("load", init);
+
+  function init() {
+    setEqualHeights(elH);
+    animateTl(xScrolling, arrows, timeline);
+    setSwipeFn(timeline, arrowPrev, arrowNext);
+    setKeyboardFn(arrowPrev, arrowNext);
+  }
+
+  // SET EQUAL HEIGHTS
+  function setEqualHeights(el) {
+    let counter = 0;
+    for (let i = 0; i < el.length; i++) {
+      const singleHeight = el[i].offsetHeight;
+
+      if (counter < singleHeight) {
+        counter = singleHeight;
+      }
+    }
+
+    for (let i = 0; i < el.length; i++) {
+      el[i].style.height = `${counter}px`;
+    }
+  }
+
+  // CHECK IF AN ELEMENT IS IN VIEWPORT
+  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // SET STATE OF PREV/NEXT ARROWS
+  function setBtnState(el, flag = true) {
+    if (flag) {
+      el.classList.add(disabledClass);
+    } else {
+      if (el.classList.contains(disabledClass)) {
+        el.classList.remove(disabledClass);
+      }
+      el.disabled = false;
+    }
+  }
+
+  // ANIMATE TIMELINE
+  function animateTl(scrolling, el, tl) {
+    let counter = 0;
+    for (let i = 0; i < el.length; i++) {
+      el[i].addEventListener("click", function() {
+        if (!arrowPrev.disabled) {
+          arrowPrev.disabled = true;
+        }
+        if (!arrowNext.disabled) {
+          arrowNext.disabled = true;
+        }
+        const sign = (this.classList.contains("arrow__prev")) ? "" : "-";
+        if (counter === 0) {
+          tl.style.transform = `translateX(-${scrolling}px)`;
+        } else {
+          const tlStyle = getComputedStyle(tl);
+          // add more browser prefixes if needed here
+          const tlTransform = tlStyle.getPropertyValue("-webkit-transform") || tlStyle.getPropertyValue("transform");
+          const values = parseInt(tlTransform.split(",")[4]) + parseInt(`${sign}${scrolling}`);
+          tl.style.transform = `translateX(${values}px)`;
+        }
+
+        setTimeout(() => {
+          isElementInViewport(firstItem) ? setBtnState(arrowPrev) : setBtnState(arrowPrev, false);
+          isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext, false);
+        }, 1100);
+
+        counter++;
+      });
+    }
+  }
+
+  // ADD SWIPE SUPPORT FOR TOUCH DEVICES
+  function setSwipeFn(tl, prev, next) {
+    const hammer = new Hammer(tl);
+    hammer.on("swipeleft", () => next.click());
+    hammer.on("swiperight", () => prev.click());
+  }
+
+  // ADD BASIC KEYBOARD FUNCTIONALITY
+  function setKeyboardFn(prev, next) {
+    document.addEventListener("keydown", (e) => {
+      if ((e.which === 37) || (e.which === 39)) {
+        const timelineOfTop = timeline.offsetTop;
+        const y = window.pageYOffset;
+        if (timelineOfTop !== y) {
+          window.scrollTo(0, timelineOfTop);
+        }
+        if (e.which === 37) {
+          prev.click();
+        } else if (e.which === 39) {
+          next.click();
+        }
+      }
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

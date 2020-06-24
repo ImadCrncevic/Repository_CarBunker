@@ -8,6 +8,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
+  <script src="script_post.js"></script>
   <link href = "stylesForCards.css" rel ="stylesheet"></script>
 </head>
 <body>
@@ -28,17 +30,18 @@
       </div>
     </nav>
 <br></br>
+
 <h2>Welcome to our Shop!</h2>
   <a href="#demo" class="btn btn-primary" data-toggle="collapse">Upload Cars</a>
 
   <div id="demo" class="collapse">
-  Here you can upload your car. All you have to do is to input your name, the brand of the car, the price and a short description.<br></br>
+  Here you can upload your car. All you have to do is to input your name, the brand of the car, the price and a your phone number.<br></br>
    Picture Url: <input type ="text" name = "fUrl" id ="fUrl"><br>
 	 Brand: <input type="text" name="fBrand" id="fBrand"><br>
-	 Description: <input type="text" name="fDescription" id="fDescription"><br>
+	 Telephon Number: <input type="text" name="fTelNumb" id="fTelNumb"><br>
    Seller: <input type="text" name="fSeller" id="fSeller"><br>
    Price: <input type = "number" name = "fPrice" id = "fPrice"><br>
-     <input type="button" onclick="submitToServer()" value="sumbit">
+  <input type="button" onclick="submitToServer()" value="submit">
   </div>
 
   <div id = "root"></div>
@@ -46,3 +49,4 @@
   <script src="script_post.js"></script>
 </body>
 </html>
+
