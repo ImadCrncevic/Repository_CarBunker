@@ -465,7 +465,7 @@ body {
   }
 
   // SET EQUAL HEIGHTS
-  function setEqualHeights(el) {
+   setEqualHeights=(el)=> {
     let counter = 0;
     for (let i = 0; i < el.length; i++) {
       const singleHeight = el[i].offsetHeight;
@@ -493,7 +493,7 @@ body {
   }
 
   // SET STATE OF PREV/NEXT ARROWS
-  function setBtnState(el, flag = true) {
+   setBtnState=(el, flag = true) =>{
     if (flag) {
       el.classList.add(disabledClass);
     } else {
@@ -505,7 +505,7 @@ body {
   }
 
   // ANIMATE TIMELINE
-  function animateTl(scrolling, el, tl) {
+  animateTl=(scrolling, el, tl) =>{
     let counter = 0;
     for (let i = 0; i < el.length; i++) {
       el[i].addEventListener("click", function() {
